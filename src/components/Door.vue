@@ -1,10 +1,24 @@
 <template>
-    <div class="door">
+    <div class="door" @click="orderCookie">
         <div class="handle"></div>
     </div>
 </template>
 
 <script>
+import {store} from '../store.js';
+
+export default {
+    methods: {
+        orderCookie() {
+            this.$store.commit('orderCookie');
+        }
+    },
+    computed: {
+        orderCount() {
+            return store.state.orderCount
+        }
+    }
+}
 </script>
 
 <style scoped>
@@ -13,6 +27,9 @@
     height: 160px;
     margin-top: 40px;
     padding-top: 80px;
+}
+.door:hover {
+    cursor: pointer;
 }
 .handle {
     height: 4px;
