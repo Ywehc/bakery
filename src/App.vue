@@ -1,12 +1,12 @@
 <template>
-  <div id="app" 
-    class="container" 
-    :class="{
+  <div id="app" :class="{
       day: this.$store.state.isDaytime, 
       night: !this.$store.state.isDaytime}">
-    <Sky />
-    <Building />
-    <Orders v-if="this.$store.state.isDaytime"/>
+    <div class="container">
+      <Sky />
+      <Building />
+      <Orders v-if="this.$store.state.isDaytime"/> 
+    </div>   
   </div>
 </template>
 
