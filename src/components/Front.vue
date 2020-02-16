@@ -1,5 +1,7 @@
 <template>
-<div class="front">
+<div :class="{
+      frontDay: this.$store.state.isDaytime, 
+      frontNight: !this.$store.state.isDaytime}">
     <Sign />
     <div class="row">
         <div class="col-4 front-left">
@@ -18,6 +20,8 @@
 </template>
 
 <script>
+import {store} from '../store.js';
+
 import Window from './Window.vue'
 import Sign from './Sign.vue'
 import Door from './Door.vue'
@@ -29,17 +33,27 @@ export default {
     Sign,
     Door,
     Mailbox
-  }
+  },
+  computed: {
+    isDaytime() {
+        return store.state.isDaytime;
+    }
+}
 }
 </script>
 
 <style scoped>
-.front {
+.frontDay, .frontNight {
     width: 320px;
     margin: auto;
     height: 200px;
-    background: #cccccc;
     position: relative;
+}
+.frontDay {
+    background: #cccccc;
+}
+.frontNight {
+    background: #565454;
 }
 .front-left {
     padding-right: 0;

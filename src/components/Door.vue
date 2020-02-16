@@ -1,5 +1,8 @@
 <template>
-    <div class="door" @click="orderCookie">
+    <div :class="{
+      doorDay: this.$store.state.isDaytime, 
+      doorNight: !this.$store.state.isDaytime}" 
+      @click="orderCookie">
         <div class="handle"></div>
     </div>
 </template>
@@ -16,20 +19,28 @@ export default {
     computed: {
         orderCount() {
             return store.state.orderCount
+        },
+        isDaytime() {
+            return store.state.isDaytime;
         }
     }
 }
 </script>
 
 <style scoped>
-.door {
-    background: #f6b26b;
+.doorDay, .doorNight {
     height: 160px;
     margin-top: 40px;
     padding-top: 80px;
 }
-.door:hover {
+.doorDay {
+    background: #f6b26b;
+}
+.doorDay:hover {
     cursor: pointer;
+}
+.doorNight {
+    background: #7d5e3d;
 }
 .handle {
     height: 4px;

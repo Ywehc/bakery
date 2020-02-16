@@ -12,7 +12,7 @@ import {store} from '../store.js';
 export default {
     methods: {
         toggleTime() {
-            this.$store.commit('resetOrders', 0);
+            this.$store.commit('resetOrders');
             this.$store.commit('toggleDay');
         },
     },
