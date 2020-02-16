@@ -46,6 +46,6 @@ export default {
     height: 4px;
     width: 24px;
     background: #b45f06;
-    margin-left: -6px;
+    margin-left: 4px;
 }
 </style>
