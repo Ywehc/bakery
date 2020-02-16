@@ -1,6 +1,5 @@
 <template>
-    <div :class="{'broken': broken, 'mailbox': !broken }" 
-        @click="fall()">
+    <div :class="{'broken': broken, 'mailbox': !broken }" @click="fall()">
         <div class="mailslot"></div>
         <p>Mailbox</p>
     </div>  
@@ -31,8 +30,10 @@ export default {
     padding-top: 10px;
 }
 .mailbox {
-    margin-top: 26px;
-    
+    margin-top: 26px;  
+}
+.mailbox:hover {
+    cursor: pointer;
 }
 .mailbox p, .broken p {
     color: #666666;

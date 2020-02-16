@@ -12,12 +12,16 @@ import {store} from '../store.js';
 export default {
     methods: {
         toggleTime() {
+            this.$store.commit('resetOrders', 0);
             this.$store.commit('toggleDay');
-        }
+        },
     },
     computed: {
         isDaytime() {
             return store.state.isDaytime;
+        },
+        resetOrders() {
+            return store.state.orderCount;
         }
     }
 }

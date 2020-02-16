@@ -1,24 +1,27 @@
 <template>
   <div id="app" 
     class="container" 
-    v-bind:class="{
+    :class="{
       day: this.$store.state.isDaytime, 
       night: !this.$store.state.isDaytime}">
     <Sky />
     <Building />
+    <Orders v-if="this.$store.state.isDaytime"/>
   </div>
 </template>
 
 <script>
 import Sky from './components/Sky.vue'
 import Building from './components/Building.vue'
-import {store} from './store.js';
+import Orders from './components/Orders.vue'
+import {store} from './store.js'
 
 export default {
   name: 'App',
   components: {
     Sky,
-    Building
+    Building,
+    Orders
   },
   computed: {
       isDaytime() {
