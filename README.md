@@ -1,4 +1,4 @@
-# bakery
+A small frontend project I was asked to build for an interview.
 
 ## Project setup
 ```
